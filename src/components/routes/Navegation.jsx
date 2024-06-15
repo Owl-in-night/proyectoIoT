@@ -8,8 +8,8 @@ function Navegation() {
   return (
     <div className="Navegation">
       <Routes>
-        <Route path="/app" element={<AppWeb />} />
-        <Route path="/" element={<SignIn />} />
+        <Route path="/" element={<AppWeb />} />
+        <Route path="/app" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/record" element={<Record />} />
       </Routes>
