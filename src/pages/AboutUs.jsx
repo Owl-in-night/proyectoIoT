@@ -19,91 +19,91 @@ function AboutUs() {
       id: 1,
       name: "Eddy Omar Arreaga Lopez",
       position: "CEO",
-      imageUrl: "/public/Images/1.png",
+      imageUrl: "/Images/1.png",
       correoI: "ca.informatica@uvg.edu.gt",
     },
     {
       id: 2,
       name: "Erick Leonel Güinac Hernández",
       position: "CEO",
-      imageUrl: "/public/Images/2.png",
+      imageUrl: "/Images/2.png",
       correoI: "elguinac@uvg.edu.gt",
     },
     {
       id: 3,
       name: "Edith Marlene López Morales",
       position: "CEO",
-      imageUrl: "/public/Images/3.png",
+      imageUrl: "/Images/3.png",
       correoI: "emlopez@uvg.edu.gt",
     },
     {
       id: 4,
       name: "Evelyn Lucía Alvarado de León",
       position: "Desarrolladora",
-      imageUrl: "/public/Images/4.png",
+      imageUrl: "/Images/4.png",
       correoI: "alv15308@uvg.edu.gt",
     },
     {
       id: 5,
       name: "José Miguel Castro Chuj",
       position: "Desarrollador",
-      imageUrl: "/public/Images/5.png",
+      imageUrl: "/Images/5.png",
       correoI: "cas201199@uvg.edu.gt",
     },
     {
       id: 6,
       name: "Santos Pedro Baltazar Joj Cano",
       position: "Desarrollador",
-      imageUrl: "/public/Images/6.png",
+      imageUrl: "/Images/6.png",
       correoI: "joj15320@uvg.edu.gt",
     },
     {
       id: 7,
       name: "David Alexander Arguetea Pelicó",
       position: "Desarrollador",
-      imageUrl: "/public/Images/7.png",
+      imageUrl: "/Images/7.png",
       correoI: "arg201250@uvg.edu.gt",
     },
     {
       id: 8,
       name: "Job Abraham Tun Sánchez",
       position: "Desarrollador",
-      imageUrl: "/public/Images/8.png",
+      imageUrl: "/Images/8.png",
       correoI: "tun17747@uvg.edu.gt",
     },
     {
       id: 9,
       name: "Herberth Dennilson Juracán Tos",
       position: "Desarrollador",
-      imageUrl: "/public/Images/9.png",
+      imageUrl: "/Images/9.png",
       correoI: "jur201103@uvg.edu.gt",
     },
     {
       id: 10,
       name: "Deysy Rossemary Sajche Mazariegos",
       position: "Desarrolladora",
-      imageUrl: "/public/Images/10.png",
+      imageUrl: "/Images/10.png",
       correoI: "saj201251@uvg.edu.gt",
     },
     {
       id: 11,
       name: "Bryan Ottoniel Juracán Chiroy",
       position: "Desarrollador",
-      imageUrl: "/public/Images/11.png",
+      imageUrl: "/Images/11.png",
       correoI: "jur201208@uvg.edu.gt",
     },
     {
       id: 12,
       name: "Dennis Andersson Xingo Ventura",
       position: "Desarrollador",
-      imageUrl: "/public/Images/12.png",
+      imageUrl: "/Images/12.png",
       correoI: "xin15374@uvg.edu.gt",
     },
     {
       id: 13,
       name: "Emmanuel Carlos Jesús Churunel Castellanos",
       position: "Desarrollador",
-      imageUrl: "/public/Images/13.png",
+      imageUrl: "/Images/13.png",
       correoI: "chu191014@uvg.edu.gt",
     },
   ];
@@ -124,7 +124,7 @@ function AboutUs() {
         <figure className="md:my-36 md:flex bg-slate-100 rounded-xl p-8 md:p-0 md:max-w-[45rem] mx-auto dark:bg-[#1E1F20]">
           <img
             className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
-            src="/public/Images/UVG.png"
+            src="/Images/UVG.png"
             alt="Universidad del Valle de Guatemala"
             width="384"
             height="512"
