@@ -78,13 +78,7 @@ function Manual() {
     return dateTime.toLocaleString('en-US', options);
   };
 
-  const handleSignout = async () => {
-    try {
-      await signout();
-    } catch (error) {
-      console.error(error);
-    }
-  };
+ 
 
   if (loading) return <h1>{texts.app.loading}</h1>;
 
