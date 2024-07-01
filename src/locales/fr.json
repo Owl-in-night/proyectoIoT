@@ -1,0 +1,104 @@
+{
+  "sidebar": {
+    "signIn": "Connexion",
+    "signUp": "S'inscrire",
+    "home": "Accueil",
+    "help": "Aide",
+    "aboutUs": "À propos de nous",
+    "contactUs": "Nous contacter",
+    "license": "Licence",
+    "manual": "Manuel",
+    "privacyPolicy": "Politique de confidentialité",
+    "record": "Enregistrement",
+    "settings": "Paramètres",
+    "darkMode": "Mode sombre",
+    "lightMode": "Mode clair",
+    "translate": "Traduire",
+    "chinese": "Chinois",
+    "french": "Français",
+    "hindi": "Hindi",
+    "spanish": "Espagnol",
+    "english": "Anglais"
+  },
+  "app":{
+    "electronicLock": "Serrure électronique",
+    "lock": "Verrouiller",
+    "unlock": "Déverrouiller",
+    "timeDateIncome": "Date et heure d'entrée",
+    "timeDateEgress": "Date et heure de sortie",
+    "on": "Allumer",
+    "off": "Éteindre",
+    "loading": "Chargement en cours",
+    "welcome": "Bienvenue!",
+    "error": "Un problème est survenu lors du démarrage du service. Veuillez réessayer plus tard."
+  },
+  "footer": {
+    "copyright1": "© 2024 ",
+    "copyright2":"Electronic Lock™.",
+    "copyright3":" Tous droits réservés.",
+    "aboutUs": "À propos de nous",
+    "privacyPolicy": "Politique de confidentialité",
+    "license": "Licence",
+    "contactUs": "Nous contacter"
+  },
+  "navbar": {
+    "signIn": "Connexion",
+    "signUp": "S'inscrire",
+    "home": "Accueil",
+    "help": "Aide",
+    "aboutUs": "À propos de nous",
+    "contactUs": "Nous contacter",
+    "license": "Licence",
+    "manual": "Manuel",
+    "privacyPolicy": "Politique de confidentialité",
+    "record": "Enregistrement",
+    "settings": "Paramètres",
+    "darkMode": "Mode sombre",
+    "lightMode": "Mode clair",
+    "translate": "Traduire",
+    "chinese": "Chinois",
+    "french": "Français",
+    "hindi": "Hindi",
+    "spanish": "Espagnol",
+    "english": "Anglais"
+  },
+  "aboutus": {
+    "aboutusT":"À propos de nous",
+    "aboutusText":"Nous sommes des étudiants de l'Université du Valle de Guatemala et sommes ravis de présenter Electronic Lock, notre projet informatique. Ce système représente notre dévouement à fournir une solution avancée en matière de sécurité et d'accessibilité.",
+    "team":"Notre équipe",
+    "positionOne":"PDG (Président Directeur Général)",
+    "positionTwo":"Développeuse",
+    "positionThree":"Développeur",
+    "teamButton":"Voir l'équipe",
+    "up":"Augmenter"
+  },
+  "contactus": {
+    "contact":"Contactez-nous",
+    "name":"Nom",
+    "email":"Mail",
+    "subject":"Affaire",
+    "message":"Message",
+    "sendmessage":"Envoyer un message"
+  },
+  "copyR": {
+
+  }
+  ,
+  "license": {
+
+  },
+  "manual": {
+
+  }
+  ,
+  "privacyp": {
+
+  }
+  ,
+  "signin": {
+
+  },
+  "signup": {
+
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "sidebar": {
+    "signIn": "Sign in",
+    "signUp": "Sign up",
+    "home": "Home",
+    "help": "Help",
+    "aboutUs": "About us",
+    "contactUs": "Contact us",
+    "license": "License",
+    "manual": "Manual",
+    "privacyPolicy": "Privacy policy",
+    "record": "Record",
+    "settings": "Settings",
+    "darkMode": "Dark mode",
+    "lightMode": "Light mode",
+    "translate": "Translate",
+    "chinese": "Chinese",
+    "french": "French",
+    "hindi": "Hindi",
+    "spanish": "Spanish",
+    "english": "English"
+  },
+  "app":{
+    "electronicLock": "Electronic Lock",
+    "lock": "Lock",
+    "unlock": "Unlock",
+    "timeDateIncome": "Time & Date Income",
+    "timeDateEgress": "Time & Date Egress",
+    "on": "On",
+    "off": "Off",
+    "loading": "Loading",
+    "welcome": "Welcome!",
+    "error": "There was a problem starting the service. Please try again later."
+  },
+  "footer": {
+    "copyright1": "© 2024 ",
+    "copyright2":"Electronic Lock™.",
+    "copyright3":" All Rights Reserved. ",
+    "aboutUs": "About us",
+    "privacyPolicy": "Privacy Policy",
+    "license": "License",
+    "contactUs": "Contact us"
+  },
+  "navbar": {
+      "signIn": "Sign in",
+      "signUp": "Sign up",
+      "home": "Home",
+      "help": "Help",
+      "aboutUs": "About us",
+      "contactUs": "Contact us",
+      "license": "License",
+      "manual": "Manual",
+      "privacyPolicy": "Privacy policy",
+      "record": "Record",
+      "settings": "Settings",
+      "darkMode": "Dark mode",
+      "lightMode": "Light mode",
+      "translate": "Translate",
+      "chinese": "Chinese",
+      "french": "French",
+      "hindi": "Hindi",
+      "spanish": "Spanish",
+      "english": "English"
+    },
+    "aboutus": {
+      "aboutusT":"About us",
+      "aboutusText":"We are students from the University of Valle de Guatemala and are excited to present Electronic Lock, our computer project. This system represents our dedication to providing an advanced solution in security and accessibility.",
+      "team":"Our team",
+      "positionOne":"CEO (Chief Executive Officer)",
+      "positionTwo":"Developer",
+      "positionThree":"Developer",
+      "teamButton":"See the team",
+      "up":"Up"
+    },
+    "contactus": {
+      "contact":"Contact Us",
+      "name":"Name",
+      "email":"Mail",
+      "subject":"Affair",
+      "message":"Message",
+      "sendmessage":"Send Message"
+    },
+    "copyR": {
+
+    }
+    ,
+    "license": {
+
+    },
+    "manual": {
+
+    }
+    ,
+    "privacyp": {
+
+    }
+    ,
+    "signin": {
+
+    },
+    "signup": {
+
+    }
+}

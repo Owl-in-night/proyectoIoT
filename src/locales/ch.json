@@ -1,0 +1,104 @@
+{
+  "sidebar": {
+    "signIn": "登入",
+    "signUp": "報到",
+    "home": "開始",
+    "help": "援助",
+    "aboutUs": "關於我們",
+    "contactUs": "聯絡我們",
+    "license": "執照",
+    "manual": "手動的",
+    "privacyPolicy": "隱私權政策",
+    "record": "記錄",
+    "settings": "設定",
+    "darkMode": "深色模式",
+    "lightMode": "清晰模式",
+    "translate": "翻譯",
+    "chinese": "中國人",
+    "french": "法語",
+    "hindi": "印地語",
+    "spanish": "西班牙語",
+    "english": "英語"
+  },
+  "app": {
+    "electronicLock": "電子鎖",
+    "lock": "鎖",
+    "unlock": "解鎖",
+    "timeDateIncome": "時間和日期收入",
+    "timeDateEgress": "時間和日期出口",
+    "on": "開",
+    "off": "關",
+    "loading": "加載中",
+    "welcome": "歡迎!",
+    "error": "啟動服務時出現問題。請稍後再試。"
+  },
+  "footer": {
+    "copyright1": "© 2024 ",
+    "copyright2":"Electronic Lock™.",
+    "copyright3":" 保留所有权利。",
+    "aboutUs": "关于我们",
+    "privacyPolicy": "隐私政策",
+    "license": "许可证",
+    "contactUs": "联系我们"
+  },
+  "navbar": {
+      "signIn": "登入",
+      "signUp": "報到",
+      "home": "開始",
+      "help": "援助",
+      "aboutUs": "關於我們",
+      "contactUs": "聯絡我們",
+      "license": "執照",
+      "manual": "手動的",
+      "privacyPolicy": "隱私權政策",
+      "record": "記錄",
+      "settings": "設定",
+      "darkMode": "深色模式",
+      "lightMode": "清晰模式",
+      "translate": "翻譯",
+      "chinese": "中國人",
+      "french": "法語",
+      "hindi": "印地語",
+      "spanish": "西班牙語",
+      "english": "英語"
+    },
+    "aboutus": {
+      "aboutusT": "關於我們",
+      "aboutusText": "我們危地馬拉山谷大學的學生很高興展示我們的電腦專案電子鎖。該系統代表了我們致力於提供安全性和可訪問性方面的先進解決方案。",
+      "team":"我们的团队",
+      "positionOne":"首席执行官 (Shǒuxí zhíxíng guān)",
+      "positionTwo":"开发人员 (Kāifā rényuán)",
+      "positionThree":"开发人员 (Kāifā rényuán)",
+      "teamButton":"看看团队",
+      "up":"增加"
+    },
+    "contactus": {
+      "contact":"聯絡我們",
+      "name":"姓名",
+      "email":"郵件",
+      "subject":"事務",
+      "message":"資訊",
+      "sendmessage":"傳訊息"
+    },
+    "copyR": {
+
+    }
+    ,
+    "license": {
+
+    },
+    "manual": {
+
+    }
+    ,
+    "privacyp": {
+
+    }
+    ,
+    "signin": {
+
+    },
+    "signup": {
+
+    }
+}

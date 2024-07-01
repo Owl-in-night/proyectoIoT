@@ -1,177 +1,359 @@
-//import { Fragment } from "react";
-import {
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  Transition,
-} from "@headlessui/react";
-import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Clock, Settings, HelpCircle } from "react-feather";
-import { useLocation ,Link } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import Select from "react-select";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, HelpCircle, Home, Clock, Settings, Moon, Sun, Globe } from "react-feather";
+import { FaInfoCircle, FaEnvelope, FaCertificate, FaBook, FaShieldAlt } from "react-icons/fa";
+import { useLanguage } from "../../context/LanguageContext";
 
-const navigation = [
-  { name: "Help", to: "/help", icon: <HelpCircle className="md:h-6 w-6 mr-2" />, current: true },
-  { name: "Record", to: "/record", icon: <Clock className="md:h-6 w-6 mr-2" />, current: false },
-  { name: "Settings", icon: <Settings className="md:h-6 w-6 mr-2" />, current: false },
-];
+const Navbar = () => {
+  const { language, translations, changeLanguage } = useLanguage();
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [subMenuTitle, setSubMenuTitle] = useState("");
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const [subMenuItems, setSubMenuItems] = useState([]);
+  const [darkMode, setDarkMode] = useState(localStorage.getItem("darkMode") === "true"? true : false);
+  const { pathname } = useLocation();
+  const sidebarRef = useRef(null);
+  const subMenuRef = useRef(null);
 
-function Navbar() {
+  useEffect(() => {
+    localStorage.setItem('darkMode', darkMode);
+    document.body.classList.toggle('dark', darkMode);
+  }, [darkMode]);
+
+  useEffect(() => {
+    const storedLanguage = localStorage.getItem('language');
+    if (storedLanguage) {
+      changeLanguage(storedLanguage);
+    }
+  }, [changeLanguage]);
+
+  useEffect(() => {
+    const storedDarkMode = localStorage.getItem('darkMode');
+    if (storedDarkMode) {
+      setDarkMode(storedDarkMode === "true");
+    }
+  }, []);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevDarkMode) => !prevDarkMode);
+  };
+
+  const handleLanguageChange = (selectedOption) => {
+    changeLanguage(selectedOption.value);
+    localStorage.setItem('language', selectedOption.value);
+  };
+
+  const texts = translations[language];
+
+  const openSubMenu = (title, items) => {
+    setSubMenuTitle(title);
+    setSubMenuItems(items);
+    setIsSubMenuOpen(true);
+    setIsSidebarOpen(false);
+  };
+
+  const closeSubMenu = () => {
+    setIsSubMenuOpen(false);
+    setSubMenuItems([]);
+  };
+
+  const closeSidebar = () => {
+    setIsSidebarOpen(false);
+  };
+
+  const handleOutsideClick = (e) => {
+    if (
+      sidebarRef.current &&
+      !sidebarRef.current.contains(e.target) &&
+      subMenuRef.current &&
+      !subMenuRef.current.contains(e.target)
+    ) {
+      closeSidebar();
+      closeSubMenu();
+    }
+  };
+
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isSidebarOpen, isSubMenuOpen]);
+
+  const mainNavigation = [
+    {
+      name: texts.navbar.home,
+      to: "/app",
+      icon: <Home className="h-6 w-6 mr-2" />,
+      current: false,
+    },
+    {
+      name: texts.navbar.help,
+      icon: <HelpCircle className="h-6 w-6 mr-2" />,
+      current: false,
+    },
+    {
+      name: texts.navbar.record,
+      to: "/record",
+      icon: <Clock className="h-6 w-6 mr-2" />,
+      current: false,
+    },
+    {
+      name: texts.navbar.settings,
+      icon: <Settings className="h-6 w-6 mr-2" />,
+      current: false,
+      onClick: () => openSubMenu(texts.navbar.settings, settingsSubNavigation),
+    },
+  ];
+
+  const helpSubNavigation = [
+    { name: texts.navbar.aboutUs, to: "/about-us", icon: <FaInfoCircle /> },
+    { name: texts.navbar.contactUs, to: "/contact-us", icon: <FaEnvelope /> },
+    { name: texts.navbar.license, to: "/license", icon: <FaCertificate /> },
+    { name: texts.navbar.manual, to: "/manual", icon: <FaBook /> },
+    {
+      name: texts.navbar.privacyPolicy,
+      to: "/privacy-policy",
+      icon: <FaShieldAlt />,
+    },
+  ];
+
+  const settingsSubNavigation = [
+    {
+      name: texts.navbar.darkMode,
+      component: ({ darkMode, toggleDarkMode }) => (
+        <div
+          className={`flex items-center justify-between w-full px-2 py-2 text-sm text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-700 ${
+            darkMode ? "bg-[#1E1F20]" : "bg-[#F0F4F9]"
+          }`}
+        >
+          <div className="flex items-center">
+            {darkMode ? (
+              <Moon className="text-gray-600 dark:text-gray-200" />
+            ) : (
+              <Sun className="text-yellow-500" />
+            )}
+            <span className="ml-4">
+              {darkMode ? texts.sidebar.darkMode : texts.sidebar.lightMode}
+            </span>
+          </div>
+          <label
+            htmlFor="darkModeToggle"
+            className="inline-flex relative items-center cursor-pointer"
+          >
+            <input
+              type="checkbox"
+              id="darkModeToggle"
+              className="sr-only peer"
+              checked={darkMode}
+              onChange={toggleDarkMode}
+            />
+            <div className="w-11 h-6 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+          </label>
+        </div>
+      ),
+    },
+    {
+      name: texts.navbar.translate,
+      component: ({ language, handleLanguageChange, darkMode }) => {
+        const options = [
+          { value: "ch", label: texts.navbar.chinese },
+          { value: "fr", label: texts.navbar.french },
+          { value: "hi", label: texts.navbar.hindi },
+          { value: "es", label: texts.navbar.spanish },
+          { value: "en", label: texts.navbar.english },
+        ];
+
+        const customStyles = {
+          menu: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.selectProps.menuColor,
+            color: darkMode ? "#fff" : "#000",
+          }),
+          menuList: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.selectProps.menuColor,
+          }),
+          option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isSelected
+              ? state.selectProps.menuColor
+              : provided.backgroundColor,
+            color: state.isSelected ? "#fff" : darkMode ? "#fff" : "#000",
+            "&:hover": {
+              backgroundColor: state.selectProps.hoverColor,
+            },
+          }),
+          control: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.selectProps.controlColor,
+            borderColor: state.selectProps.borderColor,
+            color: darkMode ? "#fff" : "#000",
+          }),
+          singleValue: (provided, state) => ({
+            ...provided,
+            color: darkMode ? "#fff" : "#000",
+          }),
+        };
+
+        return (
+          <div className="flex flex-col px-2 py-2 text-sm text-gray-800 dark:text-gray-200 mt-4">
+            <div className="flex items-center">
+              <Globe className="text-blue-500 mr-2" />
+              <span>{texts.navbar.translate}</span>
+            </div>
+            <Select
+              value={options.find((option) => option.value === language)}
+              onChange={handleLanguageChange}
+              options={options}
+              styles={customStyles}
+              menuPlacement="top"
+              isSearchable={false}
+              menuColor={darkMode ? "#1E1F20" : "#F0F4F9"}
+              hoverColor={darkMode ? "#3B3C3D" : "#E2E8F0"}
+              controlColor={darkMode ? "#1E1F20" : "#F0F4F9"}
+              borderColor={darkMode ? "#3B3C3D" : "#E2E8F0"}
+              className="mt-2 p-2 bg-[#F0F4F9] text-gray-800 dark:bg-[#1E1F20] dark:text-gray-200 rounded-md"
+            />
+          </div>
+        );
+      },
+    },
+  ];
+//Return principal de la navbar
   return (
-    <Disclosure as="nav" className="bg-[#F0F4F9] dark:bg-gray-800">
-      {({ open, close }) => (
-        <>
-          <div className="mx-auto max-w-7xl px-2 md:px-6 lg:px-8">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center md:hidden">
-                {/* Mobile menu button */}
-                <DisclosureButton className="relative inline-flex items-center justify-center rounded-md p-2 hover:bg-light-white hover:shadow-md text-[#434343] focus:outline-none focus:ring-2 focus:ring-inset">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
-                  {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                  )}
-                </DisclosureButton>
-              </div>
-              <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  {/* <img
-                    className="h-8 w-auto"
-                    src="#"
-                    alt="Your Company"
-                  /> */}
-                </div>
-                <div className="hidden md:ml-6 md:block">
-                  <div className="flex space-x-4">
-                    {navigation.map((item) => (
-                      <Link
-                        key={item.name}
-                        to={item.to}
-                        className={classNames(
-                          item.current
-                            ? "hidden md:bg-gray-900 text-white"
-                            : "hidden md:text-gray-300 hover:bg-gray-700 hover:text-white",
-                          "rounded-md px-3 py-2 text-md font-medium flex items-center"
-                        )}
-                        aria-current={item.current ? "page" : undefined}
-                      >
-                        {item.icon} {/* Agregar icono aquí */}
-                        <span className="hidden">{item.name}</span>
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 md:static md:inset-auto md:ml-6 md:pr-0">
-                <button
-                  type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 hidden"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-
-                {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
-                  <div>
-                    <MenuButton className="relative flex rounded-full bg-gray-800 text-md focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
-                      />
-                    </MenuButton>
-                  </div>
-                  <Transition
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <MenuItems className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <MenuItem>
-                        {({ active }) => (
-                          <Link
-                            to="/"
-                            className={classNames(
-                              active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-md text-gray-700"
-                            )}
-                          >
-                            Sign out
-                          </Link>
-                        )}
-                      </MenuItem>
-                    </MenuItems>
-                  </Transition>
-                </Menu>
-              </div>
+    <div
+      className={`md:hidden bg-[#F0F4F9] dark:bg-[#1E1F20] ${
+        pathname === "/" || pathname === "/signup" ? "hidden" : ""
+      }`}
+    >
+      <nav ref={sidebarRef} className="relative">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="relative flex items-center justify-between h-16">
+            <div className="absolute inset-y-0 left-0 flex items-center">
+              <button
+                className="inline-flex items-center justify-center p-2 rounded-md text-[#080808] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+              >
+                <span className="sr-only">Open main menu</span>
+                <Menu className="block h-6 w-6" aria-hidden="true" />
+              </button>
             </div>
           </div>
+        </div>
 
-          <DisclosurePanel className="md:hidden">
+        {isSidebarOpen && (
+          <>
             <div
-              className={classNames(
-                "fixed inset-0 z-40 flex",
-                open ? "translate-x-0" : "-translate-x-full",
-                "transition-transform duration-300"
-              )}
-            >
-              <div className="bg-[#F0F4F9] w-64 h-full">
-                <div className="space-y-1 px-2 pb-3 pt-2">
-                  {navigation.map((item) => (
-                   //Sidebar Color
-                    <DisclosureButton
-                      key={item.name}
-                      as={Link}
-                      to={item.to}
-                      className={classNames(
-                        item.current
-                          ? "hover:bg-light-white hover:shadow-md text-[#434343]"
-                          : "hover:bg-light-white hover:shadow-md text-[#434343]",
-                        "rounded-md px-3 py-2 text-base font-medium flex items-center"
+              className="fixed inset-0 bg-black bg-opacity-50 z-40"
+              onClick={closeSidebar}
+            ></div>
+            <div ref={sidebarRef} className="fixed inset-y-0 left-0 w-64 bg-[#F0F4F9] dark:bg-[#1E1F20] z-50 overflow-y-auto shadow-lg">
+              <div className="px-4 py-6">
+                <div className="flex items-center justify-between mb-8 h-4 w-4">
+                  <div>{/* Insert your logo or company name here */}</div>
+                  <button
+                    className="inline-flex items-center justify-center p-2 rounded-md text-[#080808] dark:text-gray-200 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                    onClick={closeSidebar}
+                  >
+                    <span className="sr-only">Close main menu</span>
+                    <Menu className="relative h-6 w-6" aria-hidden="true" />
+                  </button>
+                </div>
+
+                <div className="space-y-4">
+                  {mainNavigation.map((item) => (
+                    <div key={item.name}>
+                      {item.to ? (
+                        <Link
+                          to={item.to}
+                          className="block rounded-md px-3 py-2 text-base font-medium hover:bg-light-white hover:shadow-md text-[#080808] dark:text-[#EFEEEE]"
+                          aria-current={item.current ? "page" : undefined}
+                          onClick={closeSidebar}
+                        >
+                          <span className="flex items-center">
+                            {item.icon}
+                            <span className="ml-2">{item.name}</span>
+                          </span>
+                        </Link>
+                      ) : (
+                        <button
+                          className="block rounded-md px-3 py-2 text-base font-medium hover:bg-light-white hover:shadow-md text-[#080808] dark:text-[#EFEEEE]"
+                          onClick={() => {
+                            if (item.name === texts.navbar.help) {
+                              openSubMenu(texts.navbar.help, helpSubNavigation);
+                            } else if (item.name === texts.navbar.settings) {
+                              openSubMenu(texts.navbar.settings, settingsSubNavigation);
+                            }
+                          }}
+                        >
+                          <span className="flex items-center">
+                            {item.icon}
+                            <span className="ml-2">{item.name}</span>
+                          </span>
+                        </button>
                       )}
-                      aria-current={item.current ? "page" : undefined}
-                    >
-                      {item.icon} {/* Agregar icono aquí */}
-                      <span>{item.name}</span>
-                    </DisclosureButton>
+                    </div>
                   ))}
                 </div>
               </div>
-              <div
-                className={classNames(
-                  "flex-grow bg-black bg-opacity-50",
-                  open ? "block" : "hidden"
-                )}
-                aria-hidden="true"
-                onClick={close}
-              ></div>
             </div>
-          </DisclosurePanel>
-        </>
-      )}
-    </Disclosure>
+          </>
+        )}
+        {/* Submenu */}
+        {isSubMenuOpen && (
+          <div
+            ref={subMenuRef} className="fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50"
+            onClick={closeSubMenu}
+          >
+            <div
+              className="bg-[#F0F4F9] dark:bg-[#1E1F20] rounded-lg shadow-lg p-4 fixed inset-x-0 bottom-0 w-full max-w-screen-md mt-36 sub-menu"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 className="text-lg font-medium mb-4 text-[#080808] dark:text-[#EFEEEE] bg-[#F0F4F9] dark:bg-[#1E1F20]">
+                {subMenuTitle}
+              </h2>
+              <div className="space-y-2">
+                {subMenuItems.map((item, index) => (
+                  <div key={index}>
+                    {/* Se despliga el componente */}
+                    {item.component ? (
+                      <item.component
+                        darkMode={darkMode}
+                        toggleDarkMode={toggleDarkMode}
+                        language={language}
+                        handleLanguageChange={handleLanguageChange}
+                      />
+                    ) : (
+                      <Link
+                        to={item.to}
+                        onClick={closeSubMenu}
+                        className="block px-4 py-2 rounded-md text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                      >
+                        <div className="flex items-center">
+                          {item.icon && <span className="mr-2">{item.icon}</span>}
+                          <span>{item.name}</span>
+                        </div>
+                      </Link>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+      </nav>
+    </div>
   );
-}
+};
 
-function NavbarWrapper1() {
-  const { pathname } = useLocation();
-  if (pathname === "/" || pathname === "/signup") return null;
-  return <Navbar />;
-}
+// function NavbarWrapper() {
+//   const { pathname } = useLocation();
+//   if (pathname === "/" || pathname === "/signup") return null;
+//   return <Navbar />;
+// }
 
-export default NavbarWrapper1;
+export default Navbar;

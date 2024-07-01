@@ -1,0 +1,104 @@
+{
+  "sidebar": {
+    "signIn": "Iniciar sesión",
+    "signUp": "Registrarse",
+    "home": "Inicio",
+    "help": "Ayuda",
+    "aboutUs": "Acerca de nosotros",
+    "contactUs": "Contáctenos",
+    "license": "Licencia",
+    "manual": "Manual",
+    "privacyPolicy": "Política de privacidad",
+    "record": "Registro",
+    "settings": "Configuraciones",
+    "darkMode": "Modo oscuro",
+    "lightMode": "Modo claro",
+    "translate": "Traducir",
+    "chinese": "Chino",
+    "french": "Francés",
+    "hindi": "Hindi",
+    "spanish": "Español",
+    "english": "Inglés"
+  },
+  "app":{
+    "electronicLock": "Cerradura Electrónica",
+    "lock": "Bloquear",
+    "unlock": "Desbloquear",
+    "timeDateIncome": "Fecha y Hora de Ingreso",
+    "timeDateEgress": "Fecha y Hora de Salida",
+    "on": "Encender",
+    "off": "Apagar",
+    "loading": "Cargando",
+    "welcome": "¡Bienvenido!",
+    "error": "Hubo un problema al iniciar el servicio. Por favor, inténtalo de nuevo más tarde."
+  },
+  "footer": {
+    "copyright1": "© 2024 ",
+    "copyright2":"Electronic Lock™.",
+    "copyright3":" Todos los derechos reservados.",
+    "aboutUs": "Acerca de nosotros",
+    "privacyPolicy": "Política de privacidad",
+    "license": "Licencia",
+    "contactUs": "Contáctenos"
+  },
+  "navbar": {
+      "signIn": "Iniciar sesión",
+      "signUp": "Registrarse",
+      "home": "Inicio",
+      "help": "Ayuda",
+      "aboutUs": "Acerca de nosotros",
+      "contactUs": "Contáctenos",
+      "license": "Licencia",
+      "manual": "Manual",
+      "privacyPolicy": "Política de privacidad",
+      "record": "Registro",
+      "settings": "Configuraciones",
+      "darkMode": "Modo oscuro",
+      "lightMode": "Modo claro",
+      "translate": "Traducir",
+      "chinese": "Chino",
+      "french": "Francés",
+      "hindi": "Hindi",
+      "spanish": "Español",
+      "english": "Inglés"
+    },
+    "aboutus": {
+      "aboutusT":"Acerca de nosotros",
+      "aboutusText":"Somos estudiantes de la Universidad del Valle de Guatemala y estamos emocionados de presentar Electronic Lock, nuestro proyecto de TI. Este sistema representa nuestra dedicación a brindar una solución avanzada en seguridad y accesibilidad.",
+      "team":"Nuestro equipo",
+      "positionOne":"CEO (Director Ejecutivo)",
+      "positionTwo":"Desarrolladora",
+      "positionThree":"Desarrollador",
+      "teamButton":"Ver al equipo",
+      "up":"Subir"
+    },
+    "contactus": {
+      "contact":"Contáctenos",
+      "name":"Nombre",
+      "email":"Correo",
+      "subject":"Asunto",
+      "message":"Mensaje",
+      "sendmessage":"Enviar mensaje"
+    },
+    "copyR": {
+
+    }
+    ,
+    "license": {
+
+    },
+    "manual": {
+
+    }
+    ,
+    "privacyp": {
+
+    }
+    ,
+    "signin": {
+
+    },
+    "signup": {
+
+    }
+}

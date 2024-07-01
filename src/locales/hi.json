@@ -1,0 +1,105 @@
+{
+    "sidebar": {
+      "signIn": "लॉग इन करें",
+      "signUp": "चेक इन",
+      "home": "शुरू",
+      "help": "सहायता",
+      "aboutUs": "हमारे बारे में",
+      "contactUs": "संपर्क करें",
+      "license": "लाइसेंस",
+      "manual": "मैनुअल",
+      "privacyPolicy": "गोपनीयता नीति",
+      "record": "अभिलेख",
+      "settings": "समायोजन",
+      "darkMode": "डार्क मोड",
+      "lightMode": "साफ़ मोड",
+      "translate": "अनुवाद",
+      "chinese": "चीनी",
+      "french": "फ़्रेंच",
+      "hindi": "हिंदी",
+      "spanish": "स्पैनिश",
+      "english": "अंग्रेज़ी"
+    },
+    "app":{
+      "electronicLock": "इलेक्ट्रॉनिक ताला",
+      "lock": "ताला लगाएं",
+      "unlock": "ताला खोलें",
+      "timeDateIncome": "समय और दिनांक आय",
+      "timeDateEgress": "समय और दिनांक निकास",
+      "on": "चालू",
+      "off": "बंद",
+      "loading": "लोड हो रहा है",
+      "welcome": "स्वागत!",
+      "error": "सेवा शुरू करने में समस्या हुई। कृपया बाद में पुन: प्रयास करें।"
+    },
+    "footer": {
+      "copyright1": "© 2024 ",
+      "copyright2":"Electronic Lock™. ",
+      "copyright3":" सभी अधिकार सुरक्षित।",
+      "aboutUs": "हमारे बारे में",
+      "privacyPolicy": "गोपनीयता नीति",
+      "license": "लाइसेंस",
+      "contactUs": "संपर्क करें"
+    },
+    "navbar": {
+      "signIn": "लॉग इन करें",
+      "signUp": "चेक इन",
+      "home": "शुरू",
+      "help": "सहायता",
+      "aboutUs": "हमारे बारे में",
+      "contactUs": "संपर्क करें",
+      "license": "लाइसेंस",
+      "manual": "मैनुअल",
+      "privacyPolicy": "गोपनीयता नीति",
+      "record": "अभिलेख",
+      "settings": "समायोजन",
+      "darkMode": "डार्क मोड",
+      "lightMode": "साफ़ मोड",
+      "translate": "अनुवाद",
+      "chinese": "चीनी",
+      "french": "फ़्रेंच",
+      "hindi": "हिंदी",
+      "spanish": "स्पैनिश",
+      "english": "अंग्रेज़ी"
+    },
+    "aboutus": {
+      "aboutusT":"हमारे बारे में",
+      "aboutusText":"हम ग्वाटेमाला विश्वविद्यालय के छात्र हैं और हम अपने इलेक्ट्रॉनिक लॉक प्रोजेक्ट को पेश करने के लिए उत्साहित हैं। यह सिस्टम हमारी सुरक्षा और पहुंचने में उन्नत समाधान प्रस्तुत करने में हमारी समर्पण का प्रतिनिधित्व करता है।",
+      "team":"हमारी टीम",
+      "positionOne":"मुख्य कार्यकारी अधिकारी (Mukhya kāryakārī adhikārī)",
+      "positionTwo":" डेवलपर (Developer)",
+      "positionThree":"डेवलपर (Developer)",
+      "teamButton":"टीम देखें",
+      "up":"बढ़ोतरी"
+    },
+    "contactus": {
+      "contact":"संपर्क करें",
+      "name":"नाम",
+      "email":"मेल",
+      "subject":"मामला",
+      "message":"संदेश",
+      "sendmessage":"मेसेज भेजें"
+    },
+    "copyR": {
+
+    }
+    ,
+    "license": {
+
+    },
+    "manual": {
+
+    }
+    ,
+    "privacyp": {
+
+    }
+    ,
+    "signin": {
+
+    },
+    "signup": {
+
+    }
+  }
+  
