@@ -9,7 +9,7 @@
     "license": "Licencia",
     "manual": "Manual",
     "privacyPolicy": "Política de privacidad",
-    "record": "Registro",
+    "record": "Historial",
     "settings": "Configuraciones",
     "darkMode": "Modo oscuro",
     "lightMode": "Modo claro",
@@ -51,7 +51,7 @@
       "license": "Licencia",
       "manual": "Manual",
       "privacyPolicy": "Política de privacidad",
-      "record": "Registro",
+      "record": "Historial",
       "settings": "Configuraciones",
       "darkMode": "Modo oscuro",
       "lightMode": "Modo claro",
@@ -79,6 +79,11 @@
       "subject":"Asunto",
       "message":"Mensaje",
       "sendmessage":"Enviar mensaje"
+    },
+    "record":{
+      "record":"Historial",
+      "timeDateIncome": "Fecha y Hora de Ingreso",
+      "timeDateEgress": "Fecha y Hora de Salida"
     },
     "copyR": {
 

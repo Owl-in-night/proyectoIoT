@@ -80,6 +80,11 @@
       "message":"資訊",
       "sendmessage":"傳訊息"
     },
+    "record":{
+      "record":"記錄",
+      "timeDateIncome": "時間和日期收入",
+      "timeDateEgress": "時間和日期出口"
+    },
     "copyR": {
 
     }

@@ -12,7 +12,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-        'xs': '375px', // Extra small devices (phones)
+        'xs': '50px', // Extra small devices (phones)
         'sm': '640px', // Small devices (phones)
         'md': '768px', // Medium devices (tablets)
         'lg': '1024px', // Large devices (desktops)

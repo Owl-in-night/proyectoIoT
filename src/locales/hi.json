@@ -80,6 +80,11 @@
       "message":"संदेश",
       "sendmessage":"मेसेज भेजें"
     },
+    "record":{
+      "record":"अभिलेख",
+      "timeDateIncome": "समय और दिनांक आय",
+      "timeDateEgress": "समय और दिनांक निकास"
+    },
     "copyR": {
 
     }

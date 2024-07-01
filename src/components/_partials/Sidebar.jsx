@@ -309,7 +309,7 @@ const Sidebar = () => {
           )}
         </ul>
       </div>
-      <div className={`flex-1 p-4 transition-all duration-300 ease-in-out ${open ? 'pl-72' : 'pl-20'}`}>
+      <div className={`flex-1 transition-all duration-300 ease-in-out ${open ? 'lg:pl-72' : 'lg:pl-20'}`}>
         {/* Aquí va el contenido principal de la aplicación */}
       </div>
     </div>

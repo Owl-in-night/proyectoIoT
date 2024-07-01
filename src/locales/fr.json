@@ -80,6 +80,11 @@
     "message":"Message",
     "sendmessage":"Envoyer un message"
   },
+  "record":{
+    "record":"Enregistrer",
+    "timeDateIncome": "Date et heure d'entrée",
+    "timeDateEgress": "Date et heure de sortie"
+  },
   "copyR": {
 
   }

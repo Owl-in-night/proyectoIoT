@@ -1,11 +1,11 @@
 import { useState } from "react";
-
+import { useLanguage } from "../context/LanguageContext";
 function Record() {
-
   const [error, setError] = useState(null);
   const [ingreso, setIngreso] = useState(null);
   const [egreso, setEgreso] = useState(null);
-
+  const { language, translations} = useLanguage();
+  const texts = translations[language];
   const formatDateTime = (dateTime) => {
     if (!dateTime) return "- - -";
     const options = {
@@ -29,7 +29,7 @@ function Record() {
         <header className="flex justify-between items-center p-4">
           <div className="flex items-center space-x-4">
             <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-              Record
+              {texts.record.record}
             </h1>
           </div>
         </header>
@@ -37,7 +37,7 @@ function Record() {
           <div className="w-full flex justify-around mt-10">
             <div className="text-center">
               <p className="font-semibold text-xl text-gray-700 dark:text-gray-300 mb-2">
-                Time & Date Income
+              {texts.record.timeDateIncome}
               </p>
               <p className="font-semibold text-lg text-gray-900 dark:text-gray-100">
                 {formatDateTime(ingreso)}
@@ -45,7 +45,7 @@ function Record() {
             </div>
             <div className="text-center">
               <p className="font-semibold text-xl text-gray-700 dark:text-gray-300 mb-2">
-                Time & Date Egress
+                {texts.record.timeDateEgress}
               </p>
               <p className="font-semibold text-lg text-gray-900 dark:text-gray-100">
                 {formatDateTime(egreso)}

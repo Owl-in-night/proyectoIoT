@@ -80,6 +80,11 @@
       "message":"Message",
       "sendmessage":"Send Message"
     },
+    "record":{
+      "record":"Record",
+      "timeDateIncome": "Time & Date Income",
+      "timeDateEgress": "Time & Date Egress"
+    },
     "copyR": {
 
     }
