@@ -3,7 +3,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthState
 import { auth } from '../firebase'
 import { dataEncrypt } from '../utils/data-encrypt'
 import { dataDecrypt } from '../utils/data-decrypt'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export const authContext = createContext()
 
@@ -32,18 +32,19 @@ export function AuthProvider ({ children }) {
   }
 
   const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
       setLoading(true)
-      if (currentUser) {
+      if (currentUser && location.pathname === '/') {
         navigate('/app')
       }
       setLoading(false)
     })
     return () => unsubscribe()
-  }, [navigate])
+  }, [navigate, location.pathname])
 
   useEffect(() => {
     window.localStorage.setItem("user", dataEncrypt(user));
