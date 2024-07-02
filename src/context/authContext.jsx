@@ -3,6 +3,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthState
 import { auth } from '../firebase'
 import { dataEncrypt } from '../utils/data-encrypt'
 import { dataDecrypt } from '../utils/data-decrypt'
+import { useNavigate } from 'react-router-dom'
 
 export const authContext = createContext()
 
@@ -12,18 +13,13 @@ export const useAuth = () => {
 }
 
 export function AuthProvider ({ children }) {
-  // const [user, setUser] = useState(null)
   const [loading, setLoading] = useState(true)
   const signup = (email, password) => createUserWithEmailAndPassword(auth, email, password)
   const signin = (email, password) => signInWithEmailAndPassword(auth, email, password)
   const signout = () => signOut(auth)
-  
 
-  //Decrypt
   const userStorage = window.localStorage.getItem("user");
-  const [user, setUser] = useState(
-    dataDecrypt(userStorage) || null
-  );
+  const [user, setUser] = useState(dataDecrypt(userStorage) || null);
 
   const SigninWithGoogle = () => {
     const googleProvider = new GoogleAuthProvider()
@@ -35,16 +31,20 @@ export function AuthProvider ({ children }) {
     sendPasswordResetEmail(auth, email)
   }
 
+  const navigate = useNavigate()
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
       setLoading(true)
+      if (currentUser) {
+        navigate('/app')
+      }
       setLoading(false)
     })
     return () => unsubscribe()
-  }, [])
+  }, [navigate])
 
-  //Encrypt
   useEffect(() => {
     window.localStorage.setItem("user", dataEncrypt(user));
   }, [user]);

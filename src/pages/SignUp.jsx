@@ -2,9 +2,11 @@ import { useState } from 'react';
 import { useAuth } from '../context/authContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { Alert } from '../components/_partials/Alert';
-import '../App.css';
+import { useLanguage } from "../context/LanguageContext";
 
 function SignUp() {
+  const { language, translations } = useLanguage();
+  const texts = translations[language];
   const [user, setUser] = useState({ email: '', password: '' });
   const { signup } = useAuth();
   const navigate = useNavigate();
@@ -33,16 +35,17 @@ function SignUp() {
   };
 
   return (
-    <div className='min-h-screen flex items-center justify-center bg-gray-100'>
+    <div className='min-h-screen flex items-center justify-center bg-cover bg-center'
+         style={{ backgroundImage: `url('/Images/SU.png')` }}>
       <div className="w-full max-w-md m-auto bg-white rounded-lg shadow-lg p-8">
         <div className="flex-1 p-1">
-          <h1 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Sign Up</h1>
+          <h1 className="text-2xl font-semibold text-gray-700 mb-6 text-center">{texts.signup.signUp}</h1>
         </div>
         {error && <Alert message={error} />}
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
             <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-              Email
+              {texts.signup.emailLabel}
             </label>
             <input
               type="email"
@@ -56,7 +59,7 @@ function SignUp() {
 
           <div>
             <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">
-              Password
+              {texts.signup.passwordLabel}
             </label>
             <input
               type="password"
@@ -73,13 +76,13 @@ function SignUp() {
             type="submit"
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
           >
-            Sign Up
+            {texts.signup.signUp}
           </button>
 
           <p className="text-sm text-center text-gray-600">
-            Do you have an account?{' '}
+            {texts.signup.haveAccount}{' '}
             <Link to="/" className="text-blue-500 hover:text-blue-800">
-              Sign In
+              {texts.signin.signIn}
             </Link>
           </p>
         </form>

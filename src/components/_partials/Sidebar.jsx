@@ -200,7 +200,7 @@ const Sidebar = () => {
               menu.visible !== false && (
                 <li
                   key={index}
-                  className={`flex flex-col p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm items-start gap-x-4 mt-2 ${index === 0 ? 'bg-gray-200 dark:bg-[#1E1F20]' : ''}`}
+                  className={`flex flex-col p-2 cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm items-start gap-x-4 mt-2 ${index === 0 ? 'bg-gray-200 dark:bg-gray-800' : ''}`}
                   onClick={(e) => {
                     if (menu.subMenus) {
                       e.stopPropagation();

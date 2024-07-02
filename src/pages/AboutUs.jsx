@@ -121,9 +121,9 @@ function AboutUs() {
           </header>
         </div>
         {/* Text */}
-        <figure className="md:my-36 md:flex bg-slate-100 rounded-xl p-8 md:p-0 md:max-w-[45rem] mx-auto dark:bg-[#1E1F20]">
+        <figure className="md:my-[2rem] md:flex bg-slate-100 rounded-xl p-8 md:p-0 md:max-w-[65rem] mx-auto dark:bg-[#1E1F20]">
           <img
-            className="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto"
+            className="w-24 h-24 md:w-[275px] md:h-[275px] md:rounded-none rounded-full mx-auto"
             src="/Images/UVG.png"
             alt="Universidad del Valle de Guatemala"
             width="384"
@@ -136,18 +136,29 @@ function AboutUs() {
               </p>
             </blockquote>
           </div>
+          <img
+                className="w-24 h-24 md:w-[275px] md:h-[275px] md:rounded-none rounded-full mx-auto"
+                src="/Images/ING.png"
+                alt="Facultad de Ingeniería"
+                width="384"
+                height="512"
+              />
         </figure>
         {/* Button */}
-        <div className="text-center mt-8">
+        <div className="text-center mt-[100px]">
+          {/* Clase para ocultar en sm y xs, pero mostrar en md, lg, xl, 2xl */}
           <a
             href="#team"
-            className="inline-block px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-full shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+            className="hidden sm:inline-block px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-full shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
           >
             {texts.aboutus.teamButton}
           </a>
         </div>
         {/* Team */}
-        <div id="team" className="max-w-7xl mx-auto py-[215px] px-4 sm:px-6 lg:px-8">
+        <div
+          id="team"
+          className="max-w-7xl mx-auto mt-[125px] px-4 sm:px-6 lg:px-8"
+        >
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-[#434343] dark:text-gray-200 sm:text-4xl">
               {texts.aboutus.team}
@@ -191,14 +202,14 @@ function AboutUs() {
             </div>
           </div>
           {/* Button */}
-        <div className="text-center mt-8">
-          <a
-            href="#about"
-            className="inline-block px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-full shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
-          >
-            {texts.aboutus.up}
-          </a>
-        </div>
+          <div className="text-center mt-8 my-24">
+            <a
+              href="#about"
+              className="inline-block px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-full shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50"
+            >
+              {texts.aboutus.up}
+            </a>
+          </div>
         </div>
       </div>
     </>

@@ -2,9 +2,12 @@ import { useState } from "react";
 import { useAuth } from "../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert } from "../components/_partials/Alert";
-import "../App.css";
+import { useLanguage } from "../context/LanguageContext";
 
 function SignIn() {
+  const { language, translations } = useLanguage();
+  const texts = translations[language];
+
   const [user, setUser] = useState({ email: "", password: "" });
   const { signin, SigninWithGoogle, resetPassword } = useAuth();
   const navigate = useNavigate();
@@ -52,81 +55,80 @@ function SignIn() {
   };
 
   return (
-    <>
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
-        <div className="w-full max-w-md m-auto bg-white rounded-lg shadow-lg p-8">
-          <div className="flex-1 p-1">
-            <h1 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Sign In</h1>
-          </div>
-          {error && <Alert message={error} />}
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Email
-              </label>
-              <input
-                type="email"
-                name="email"
-                placeholder="youremail@uvg.edu.gt"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-gray-700 text-sm font-bold mb-2"
-              >
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="******"
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="flex items-center justify-between">
-              <button
-                type="submit"
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-              >
-                Sign In
-              </button>
-              <a
-                href="#!"
-                className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
-                onClick={handleResetPassword}
-              >
-                Forgot Password?
-              </a>
-            </div>
-
-            <p className="text-sm text-center text-gray-600">
-              Don't have an account?{" "}
-              <Link to="/signup" className="text-blue-500 hover:text-blue-800">
-                Sign Up
-              </Link>
-            </p>
-          </form>
-          <button
-            className="mt-4 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full"
-            onClick={handleGoogleSignin}
-          >
-            Sign In with Google
-          </button>
+    <div className="min-h-screen flex items-center justify-center bg-cover bg-center"
+         style={{ backgroundImage: `url('/Images/SI.png')` }}>
+      <div className="w-full max-w-md m-auto bg-white rounded-lg shadow-lg p-8">
+        <div className="flex-1 p-1">
+          <h1 className="text-2xl font-semibold text-gray-700 mb-6 text-center">{texts.signin.signIn}</h1>
         </div>
+        {error && <Alert message={error} />}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              {texts.signin.emailLabel}
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="youremail@uvg.edu.gt"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="password"
+              className="block text-gray-700 text-sm font-bold mb-2"
+            >
+              {texts.signin.passwordLabel}
+            </label>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              placeholder="******"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="flex items-center justify-between">
+            <button
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              {texts.signin.signInButton}
+            </button>
+            <a
+              href="#!"
+              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              onClick={handleResetPassword}
+            >
+              {texts.signin.forgotPassword}
+            </a>
+          </div>
+
+          <p className="text-sm text-center text-gray-600">
+            {texts.signin.noAccount}{" "}
+            <Link to="/signup" className="text-blue-500 hover:text-blue-800">
+              {texts.signup.signUp}
+            </Link>
+          </p>
+        </form>
+        <button
+          className="mt-4 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow w-full"
+          onClick={handleGoogleSignin}
+        >
+          {texts.signin.signInWithGoogle}
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 
